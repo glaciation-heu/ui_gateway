@@ -108,7 +108,7 @@ paths:
           - operator
       operationId: websocket_notifications
       summary: Notifications
-      description: Establishes a WebSocket connection for notifications
+      description: Establishes a WebSocket connection for notifications. The message format corresponds to the Notification model.
       responses:
         '101':
           description: Switching protocols
@@ -119,10 +119,6 @@ paths:
                 enum:
                   - websocket
               description: A server supports WebSocket connection.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Notification'
 
   /ws/updates:
     get:
@@ -134,7 +130,7 @@ paths:
           - operator
       operationId: websocket_updates
       summary: Updates
-      description: Establishes a WebSocket connection for updates
+      description: Establishes a WebSocket connection for updates. The message format corresponds to the Update model.
       responses:
         '101':
           description: Switching protocols
@@ -145,10 +141,6 @@ paths:
                 enum:
                   - websocket
               description: A server supports WebSocket connection.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Update'
 
   /profile:
     get:
