@@ -546,6 +546,40 @@ paths:
                   size:
                     $ref: '#/components/schemas/PageSize'
 
+    post:
+      tags:
+        - Workload
+      security:
+        - OAuth2:
+          - engineer
+          - operator
+      operationId: create_workload
+      summary: Create a workload
+      description: Creates a new workload.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object  # TODO: Define a workload schema
+      responses:
+        '201':
+          description: Workload created successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: ID of the created workload.
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+
   /workloads/{id}:
     get:
       tags:
@@ -692,6 +726,40 @@ paths:
                     $ref: '#/components/schemas/Page'
                   size:
                     $ref: '#/components/schemas/PageSize'
+
+    post:
+      tags:
+        - Dataset
+      security:
+        - OAuth2:
+          - engineer
+          - operator
+      operationId: create_dataset
+      summary: Create a dataset
+      description: Creates a new dataset.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object  # TODO: Define a dataset schema
+      responses:
+        '201':
+          description: Dataset created successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: ID of the created dataset.
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
 
   /datasets/{id}:
     get:
