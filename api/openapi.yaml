@@ -15,7 +15,7 @@ servers:
   - url: "http://localhost:8000"
     description: Local development server
 
-security: 
+security:
   - OAuth2:
     - engineer
     - operator
@@ -1070,7 +1070,7 @@ components:
           - Network
           - Dataset
           - Telemetry
-    
+
     ObjectIDParam:
       name: objectId
       in: query
@@ -1304,7 +1304,7 @@ components:
       minimum: 1
       maximum: 100
       default: 100
-    
+
     GraphVersion:
       type: object
       required:
@@ -1689,7 +1689,7 @@ components:
 
     Dataset:
       $ref: '#/components/schemas/DatasetInList'
-    
+
     DatasetShort:
       type: object
       required:
@@ -1769,7 +1769,7 @@ components:
             - millisecond
             - number
           example: percent
-    
+
     Telemetry:
       type: object
       required:
@@ -1787,7 +1787,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ExternalServiceLink'
-    
+
     ObjectTelemetry:
       allOf:
         - $ref: '#/components/schemas/Telemetry'
