@@ -204,7 +204,7 @@ paths:
                   size:
                     $ref: '#/components/schemas/PageSize'
 
-  /query:
+  /queries:
     get:
       tags:
         - Query
@@ -276,7 +276,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
 
-  /query/{id}:
+  /queries/{id}:
     get:
       tags:
         - Query
@@ -321,7 +321,7 @@ paths:
         '204':
           description: Successful removal
 
-  /query-result/{id}:
+  /query-results/{id}:
     get:
       tags:
         - Query
@@ -358,7 +358,7 @@ paths:
                   size:
                     $ref: '#/components/schemas/PageSize'
 
-  /glaciation-node:
+  /glaciation-nodes:
     get:
       tags:
         - GlaciationNode
@@ -408,7 +408,7 @@ paths:
                   size:
                     $ref: '#/components/schemas/PageSize'
 
-  /glaciation-node/{id}:
+  /glaciation-nodes/{id}:
     get:
       tags:
         - GlaciationNode
@@ -434,7 +434,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GlaciationNode'
 
-  /kubernetes-node:
+  /kubernetes-nodes:
     get:
       tags:
         - KubernetesNode
@@ -484,7 +484,7 @@ paths:
                   size:
                     $ref: '#/components/schemas/PageSize'
 
-  /kubernetes-node/{id}:
+  /kubernetes-nodes/{id}:
     get:
       tags:
         - KubernetesNode
@@ -510,7 +510,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/KubernetesNode'
 
-  /workload:
+  /workloads:
     get:
       tags:
         - Workload
@@ -554,7 +554,7 @@ paths:
                   size:
                     $ref: '#/components/schemas/PageSize'
 
-  /workload/{id}:
+  /workloads/{id}:
     get:
       tags:
         - Workload
@@ -599,7 +599,7 @@ paths:
         '204':
           description: Successful removal
 
-  /network:
+  /networks:
     get:
       tags:
         - Network
@@ -637,7 +637,7 @@ paths:
                   size:
                     $ref: '#/components/schemas/PageSize'
 
-  /network/{id}:
+  /networks/{id}:
     get:
       tags:
         - Network
@@ -663,7 +663,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Network'
 
-  /dataset:
+  /datasets:
     get:
       tags:
         - Dataset
@@ -701,7 +701,7 @@ paths:
                   size:
                     $ref: '#/components/schemas/PageSize'
 
-  /dataset/{id}:
+  /datasets/{id}:
     get:
       tags:
         - Dataset
