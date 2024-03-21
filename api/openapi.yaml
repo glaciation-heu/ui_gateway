@@ -1498,7 +1498,6 @@ components:
               items:
                 $ref: '#/components/schemas/NetworkShort'
 
-
     GlaciationNodeShort:
       type: object
       required:

@@ -65,86 +65,33 @@ poetry install --no-root --with dev,test
 
 3. Launch the project:
 ```bash
-poetry run uvicorn app.main:app [--reload]
-```
-or do it in two steps:
-```bash
-poetry shell
-uvicorn app.main:app
+poetry run uvicorn app.api.main:app [--reload]
 ```
 
-4. Running tests:
+1. Running tests:
 ```bash
 poetry run pytest
 ```
 
-You can test the application for multiple versions of Python. To do this, you need to install the required Python versions on your operating system, specify these versions in the tox.ini file, and then run the tests:
+## Manual build and deployment on minikube
+1. Install [minikube](https://minikube.sigs.k8s.io/docs/start/).
+2. Start minikube:
 ```bash
-poetry run tox
+minikube start
 ```
-
-## Package
-To generate and publish a package on pypi.org, execute the following commands:
+3. Build a docker image:
 ```bash
-poetry config pypi-token.pypi <pypi_token>
-poetry build
-poetry publish
+docker build . -t ui-gateway:latest
 ```
-
-pypi_token - API token for authentication on PyPI. https://pypi.org/help/#apitoken
-
-## Docker
-Build a docker image and run a container:
+4. Upload the docker image to minikube:
 ```bash
-docker build . -t <image_name>:<image_tag>
-docker run <image_name>:<image_tag>
+minikube image load ui-gateway:latest
 ```
-
-Upload the Docker image to the repository:
+5. Deploy the service:
 ```bash
-docker login -u <username>
-docker push <image_name>:<image_tag>
-```
-
-https://docs.docker.com/
-
-## Helm chart
-Authenticate your Helm client in the container registry:
-```bash
-helm registry login <repo_url> -u <username>
-```
-
-Create a Helm chart:
-```bash
-helm package charts/<chart_name>
-```
-
-Push the Helm chart to container registry:
-```bash
-helm push <helm_chart_package> <repo_url>
-```
-
-Deploy the Helm chart:
-```bash
-helm repo add <repo_name> <repo_url>
-helm repo update <repo_name>
-helm upgrade --install <release_name> <repo_name>/<chart_name>
-```
-
-https://helm.sh/ru/docs/
-
-## OpenaAPI schema
-To manually generate the OpenAPI schema, execute the command from the project root folder:
-```bash
-poetry --directory server run python ./tools/extract_openapi.py app.main:app --app-dir ./server --out ./api/openapi.yaml --app_version_file ./VERSION
+helm upgrade --install ui-gateway-dep ./charts/server --set image.repository=ui-gateway --set image.tag=latest --version 0.1.0
 ```
 
 ## Prometheus metrics
 The application includes prometheus-fastapi-instrumentator for monitoring performance and analyzing its operation. It automatically adds an endpoint `/metrics` where you can access application metrics for Prometheus. These metrics include information about request counts, request execution times, and other important indicators of application performance.
 More on that at (Prometheus FastAPI Instrumentator)[https://github.com/trallnag/prometheus-fastapi-instrumentator]
-
-## Classy-FastAPI
-Classy-FastAPI allows you to easily do dependency injection of 
-object instances that should persist between FastAPI routes invocations,
-e.g. database connections.
-More on that (with examples) at [Classy-FastAPI GitLab page](https://gitlab.com/companionlabs-opensource/classy-fastapi).

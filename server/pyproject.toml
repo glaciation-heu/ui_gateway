@@ -3,15 +3,14 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
-name = "template-python"
+name = "UI gateway service"
 version = "0.0.0"
-description = "Web service template in Python for reuse."
+description = "An intermediary component between Glaciation Frontend and Metadata Service. The service adapts user interface queries into a series of SPARQL requests to MetadataService and telemetry requests from Storage Service. The service also checking user permissions via oauth server and filters the KGs that a user is not allowed to access."
 readme = "README.md"
 authors = ["HIRO-MicroDataCenters <all-hiro@hiro-microdatacenters.nl>"]
 license = "MIT"
-repository = "https://github.com/HIRO-MicroDataCenters-BV/python-service-template"
-homepage = "https://github.com/HIRO-MicroDataCenters-BV/python-service-template"
-packages = [{include = "*", from="app"}]
+repository = "https://github.com/glaciation-heu/ui_gateway"
+homepage = "https://github.com/glaciation-heu/ui_gateway"
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -33,7 +32,6 @@ types-pyyaml = "^6.0.12.12"
 pytest = "^7.4"
 pytest-mock = "^3.12.0"
 httpx = "^0.26"
-tox = "^4.13.0"
 
 [tool.isort]
 # https://github.com/timothycrosley/isort/

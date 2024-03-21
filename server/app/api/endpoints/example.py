@@ -27,4 +27,4 @@ class ExampleResponse(BaseModel):
 )
 async def read_root() -> ExampleResponse:
     """Example endpoint that returns test data"""
-    return ExampleResponse(value="Hello World")
+    return ExampleResponse(value="This is a UI gateway service")
