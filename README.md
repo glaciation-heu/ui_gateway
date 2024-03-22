@@ -33,16 +33,13 @@ https://docs.github.com/en/actions
 During the build and publish process, a Docker image is built, a Helm chart is created, an openapi.yaml is generated.
 
 **Initial setup**  
-Create the branch gh-pages and use it as a GitHub page https://pages.github.com/.  
-Set up secrets at `https://github.com/glaciation-heu/ui_gateway/settings/secrets/actions`:
-1. DOCKER_IMAGE_NAME - The name of the Docker image for uploading to the repository.
-2. DOCKER_USERNAME - The username for the Docker repository on https://hub.docker.com/.
-3. DOCKER_PASSWORD - The password for the Docker repository.
-4. PYPI_TOKEN - The secret token for PyPI. https://pypi.org/help/#apitoken
+1. Create the branch gh-pages and use it as a GitHub page https://pages.github.com/.  
+2. Set up secrets at `https://github.com/glaciation-heu/ui_gateway/settings/secrets/actions`:
+  - PYPI_TOKEN - The secret token for PyPI. https://pypi.org/help/#apitoken
 
 **After execution**  
-The index.yaml file containing the list of Helm charts will be available at `https://glaciation-heu.github.io/ui_gateway/charts-repo/index.yaml`. You can this URL on https://artifacthub.io/.  
-A package of the client will be available at pypi.org.
+1. The index.yaml file containing the list of Helm charts will be available at `https://glaciation-heu.github.io/ui_gateway/helm-charts/index.yaml`. You can this URL on https://artifacthub.io/.
+2. A package of the client will be available at pypi.org.
 
 ## Collaboration guidelines
 HIRO uses and requires from its partners [GitFlow with Forks](https://hirodevops.notion.site/GitFlow-with-Forks-3b737784e4fc40eaa007f04aed49bb2e?pvs=4)
