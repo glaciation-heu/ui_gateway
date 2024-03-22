@@ -1,9 +1,11 @@
+from typing import Any
+
 from app.models.logs import Level
 from app.models.object import ObjectType
 
 
 class LogsService:
-    def get_list(self) -> list:
+    def get_list(self) -> list[dict[str, Any]]:
         return [
             {
                 "id": "ac740dbd-441e-4ecf-b0fc-95963b5a8551",
