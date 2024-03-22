@@ -5,7 +5,7 @@ from app.models.object import ObjectType
 
 
 class LogsService:
-    def get_list(self) -> list[dict[str, Any]]:
+    def get_list(self) -> list[Any]:
         return [
             {
                 "id": "ac740dbd-441e-4ecf-b0fc-95963b5a8551",
