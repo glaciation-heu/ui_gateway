@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  ui-gateway-server:
+  - apiVersion: v2
+    appVersion: 0.1.0-dev.6.feature-stub.79755be3
+    created: "2024-03-22T07:38:00.616030953Z"
+    description: UI gateway server
+    digest: 869e01fe7af11fb31b2a70819dc7233d05b09e81345def6a57fb6d8f4e479fd2
+    name: ui-gateway-server
+    type: application
+    urls:
+    - https://glaciation-heu.github.io/ui_gateway/helm-charts/ui-gateway-server-0.1.0-dev.6.feature-stub.79755be3.tgz
+    version: 0.1.0-dev.6.feature-stub.79755be3
+generated: "2024-03-22T07:38:00.615163906Z"
